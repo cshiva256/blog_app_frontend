@@ -1,0 +1,70 @@
+.form {
+    background-color: rgb(226, 145, 240);
+    padding: 2rem;
+    width: 30rem;
+    border-radius: 10px;
+}
+
+.form label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+.form input,
+.form textarea {
+    display: block;
+    width: 95%;
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    background-color: rgb(191, 112, 222);
+    border: none;
+    color: aliceblue;
+}
+
+.form textarea {
+    max-width: 95%;
+    min-width: 95%;
+}
+
+.checkbox {
+    margin-top: 10px;
+}
+
+.checkbox label,
+.checkbox input {
+    display: inline;
+    max-width: 30%;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin: 20px 7px 0 0;
+}
+
+.actions button {
+    cursor: pointer;
+    font: inherit;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #b72bd6;
+    color: #e5d5f7;
+}
+
+.actions button:hover {
+    background-color: #9d038d;
+}
+
+.actions button[type='button'] {
+    background-color: transparent;
+    color: black;
+}
+
+.actions button[type='button']:hover {
+    color: #d1bee6;
+}

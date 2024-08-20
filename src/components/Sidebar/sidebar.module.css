@@ -1,0 +1,33 @@
+.sidebar {
+    height: 100%;
+    width: 230px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(205, 137, 234);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.links {
+    display: block;
+    text-decoration: none;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    color: aliceblue;
+    font-size: larger;
+    transition: 400ms;
+}
+
+.links:hover {
+    background-color: rgb(175, 87, 195);
+    border-radius: 10px;
+}
+
+.bottom {
+    margin-bottom: 100px;
+}
