@@ -13,7 +13,9 @@
 }
 
 .links {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     margin: auto;
     padding: 10px;
@@ -29,5 +31,48 @@
 }
 
 .bottom {
+    color: aliceblue;
     margin-bottom: 100px;
+}
+
+.search-btn {
+    text-align: center;
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: large;
+    transition: 400ms;
+    position: relative;
+}
+
+.search-btn:hover {
+    color: aliceblue;
+    background-color: rgb(175, 87, 195);
+    border-radius: 10px;
+    left: 5px;
+    cursor: pointer;
+}
+
+.btn {
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    background: none;
+    border: none;
+    width: 100%;
+    color: aliceblue;
+    font-size: larger;
+    align-items: center;
+    transition: 400ms;
+}
+
+.btn:hover {
+    background-color: rgb(175, 87, 195);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.icon {
+    margin-left: 10px;
 }

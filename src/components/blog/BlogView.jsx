@@ -17,12 +17,17 @@ const BlogView = () => {
         setModalVisibility(prev => !prev)
     }
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await getPrivateBlogs(query);
-            setBlogs(data)
+    const fetchData = async (query) => {
+        const data = await getPrivateBlogs(query);
+        if (data["error"]) {
+            alert(data["error"]);
+            return;
         }
-        fetchData();
+        setBlogs(data)
+    }
+
+    useEffect(() => {
+        fetchData(query);
     }, [query])
 
     let modelContent;
@@ -32,6 +37,7 @@ const BlogView = () => {
             <Modal onClose={toggleModalVisibility}>
                 <BlogCreate
                     onClose={toggleModalVisibility}
+                    onAddBlog={fetchData}
                 />
             </Modal>
         )

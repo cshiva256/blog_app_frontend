@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from './user.module.css'
 import { setToken, userSignUp } from '../../helpers/api'
 import { useNavigate } from 'react-router-dom'
+import { flash } from '../../helpers/flash'
 
 const UserSignUp = () => {
 
@@ -27,6 +28,12 @@ const UserSignUp = () => {
 
     const SignUpUser = async (event) => {
         event.preventDefault();
+        if (password !== passwordConfirmation) {
+            alert("Passwords do not match")
+            setPassword("")
+            setPasswordConfirmation("")
+            return;
+        }
         const user = {
             "user_name": userName,
             "display_name": displayName,
@@ -34,7 +41,14 @@ const UserSignUp = () => {
             "password_confirmation": passwordConfirmation
         }
         const res = await userSignUp(user)
+        if (res["error"]) {
+            alert(res["error"])
+            setPassword("")
+            setPasswordConfirmation("")
+            return;
+        }
         setToken(res)
+        flash("User created successfully!!!")
         navigate("/blogs")
     }
 
@@ -60,11 +74,27 @@ const UserSignUp = () => {
             </div>
             <div>
                 <label htmlFor="password">Password:</label>
-                <input type='password' id='password' name='password' onChange={updatePassword} />
+                <input
+                    type='password'
+                    id='password'
+                    name='password'
+                    onChange={updatePassword}
+                    value={password}
+                    required
+                    minLength={6}
+                />
             </div>
             <div>
                 <label htmlFor="password_confirmation">Confirm Password:</label>
-                <input type='password' id='password_confirmation' name='password' onChange={updatePasswordConfiramtion} />
+                <input
+                    type='password'
+                    id='password_confirmation'
+                    name='password'
+                    onChange={updatePasswordConfiramtion}
+                    value={passwordConfirmation}
+                    required
+                    minLength={6}
+                />
             </div>
             <div className={styles.actions}>
                 <button>Sign Up</button>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import styles from './blog.module.css'
 import { createBlog } from '../../helpers/api';
+import { flash } from '../../helpers/flash';
 
-const BlogCreate = ({ onClose }) => {
+const BlogCreate = ({ onClose, onAddBlog }) => {
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
@@ -28,8 +29,13 @@ const BlogCreate = ({ onClose }) => {
             is_public: isPublic
         }
         const res = await createBlog(blog)
-        console.log(res)
-
+        if (res["error"]) {
+            alert(res["error"])
+            return;
+        }
+        onClose();
+        flash("Blog created successfully!!!");
+        onAddBlog("");
     }
 
     return (

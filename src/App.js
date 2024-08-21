@@ -9,6 +9,8 @@ import UserSignUp from './components/user/UserSignUp';
 import UserSignIn from './components/user/UserSignIn';
 import BlogView from './components/blog/BlogView';
 import UserEdit from './components/user/UserEdit';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -29,6 +31,12 @@ function App() {
             <Route path='*' element={<NotFoundPage />} />
           </Routes>
         </div>
+
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          closeOnClick
+        />
       </SearchProvider>
     </>
   );

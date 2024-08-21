@@ -14,6 +14,10 @@ const Blog = () => {
     useEffect(() => {
         const fetchData = async () => {
             const data = await getPublicBlogs(query);
+            if (data["error"]) {
+                alert(data["error"]);
+                return;
+            }
             setBlogs(data);
         }
         fetchData();

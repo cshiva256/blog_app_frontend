@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { deleteBlog, getBlog, getToken } from '../../helpers/api';
 import styles from "./blog.module.css"
-import NotFoundPage from '../../NotFoundPage';
 import { useNavigate } from 'react-router-dom'
 import Modal from '../modal/Modal'
 import BlogEdit from './BlogEdit';
+import NotFoundPage from '../../NotFoundPage';
+import { flash } from '../../helpers/flash';
 
 const BlogCard = () => {
 
@@ -19,22 +20,25 @@ const BlogCard = () => {
     const navigate = useNavigate();
     const { id } = useParams();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await getBlog(id);
-            setBlog(data);
-        }
-        fetchData()
-    }, [id])
-
-    if (blog["error"]) {
-        return <NotFoundPage msg={blog["error"]} />
+    const fetchData = async (id) => {
+        const data = await getBlog(id);
+        setBlog(data);
     }
+
+    useEffect(() => {
+        fetchData(id)
+    }, [id])
 
     const removeBlog = async (event) => {
         event.preventDefault();
-        const res = await deleteBlog(id);
-        console.log(res);
+        if (window.confirm("Are you sure you want to delete this blog?")) {
+            const res = await deleteBlog(id);
+            if (res["error"]) {
+                alert(res["error"]);
+                return;
+            }
+            flash("Blog deleted successfully!!!");
+        }
         navigate("/blogs/view");
     }
 
@@ -47,10 +51,17 @@ const BlogCard = () => {
             <Modal onClose={toggleModalVisibility}>
                 <BlogEdit
                     onClose={toggleModalVisibility}
+                    onUpdateBlog={fetchData}
                     blog={blog}
                 />
             </Modal>
         )
+    }
+
+
+    if (blog["error"]) {
+        flash(blog["error"], "error");
+        return <NotFoundPage msg={blog["error"]} />;
     }
 
     return (
@@ -60,7 +71,7 @@ const BlogCard = () => {
                 <h1 className={styles.title}>{blog.title}</h1>
                 <p className={styles.body} dangerouslySetInnerHTML={{ __html: blog.content }} />
                 {access_token && user_id == blog["user_id"] &&
-                    <div>
+                    <div className={styles.actions}>
                         <button type='button' onClick={toggleModalVisibility}>Edit Blog</button>
                         <button onClick={removeBlog}>Delete</button>
                     </div>

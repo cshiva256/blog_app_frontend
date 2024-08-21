@@ -172,3 +172,59 @@ export const userSignUp = async (userData) => {
         console.log("error while Signing up!!")
     }
 }
+
+export const getUserDetails = async () => {
+    const res = await fetch(process.env.REACT_APP_API + `users`, {
+        method: "GET",
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+            'Authorization': getToken()["access_token"]
+        },
+        credentials: 'include'
+    });
+
+    return res.json()
+}
+
+export const editUser = async (userData) => {
+    const URL = process.env.REACT_APP_API + "users"
+    try {
+        const res = await fetch(URL, {
+            method: "PUT",
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json',
+                'Authorization': getToken()["access_token"]
+            },
+            body: JSON.stringify(userData),
+            credentials: 'include'
+        });
+
+        return res.json();
+    }
+    catch (error) {
+        console.log("error while editing user!!")
+    }
+}
+
+export const deleteUser = async (userData) => {
+    const URL = process.env.REACT_APP_API + `users`
+    try {
+        const res = await fetch(URL, {
+            method: "DELETE",
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json',
+                'Authorization': getToken()["access_token"]
+            },
+            body: JSON.stringify(userData),
+            credentials: 'include'
+        });
+
+        return res.json();
+    }
+    catch (error) {
+        console.log("error while deleting user!!")
+    }
+}

@@ -1,8 +1,10 @@
 .card {
-    background-color: rgb(246, 157, 84);
+    background-color: rgb(205, 137, 234);
     padding: 10px;
     border-radius: 20px;
     justify-content: center;
+    max-width: 70%;
+    margin: 5rem auto;
 }
 
 .body {
@@ -20,7 +22,7 @@
     position: relative;
     font-size: larger;
     padding-inline-start: 1px;
-    max-width: 100rem;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 30%);
     gap: 1rem;
@@ -103,13 +105,14 @@
     font: inherit;
     padding: 0.5rem 1.5rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     background-color: #b72bd6;
     color: #e5d5f7;
 }
 
 .actions button:hover {
-    background-color: #9d038d;
+    background-color: #f259e0;
+    color: #474547;
 }
 
 .actions button[type='button'] {

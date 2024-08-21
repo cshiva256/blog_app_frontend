@@ -1,8 +1,9 @@
 import React, { useState, useRef } from 'react'
 import { editBlog } from '../../helpers/api';
 import styles from "./blog.module.css"
+import { flash } from '../../helpers/flash';
 
-const BlogEdit = ({ onClose, blog }) => {
+const BlogEdit = ({ onClose, onUpdateBlog, blog }) => {
     const [title, setTitle] = useState(blog["title"]);
     const [content, setContent] = useState(blog["content"]);
     const isPublic = useRef(blog["is_public"]);
@@ -24,8 +25,13 @@ const BlogEdit = ({ onClose, blog }) => {
             is_public: isPublic.current.checked
         }
         const res = await editBlog(id, blog)
-        console.log(res);
-        onClose()
+        if (res["error"]) {
+            alert(res["error"])
+            return;
+        }
+        onClose();
+        flash("Blog updated successfully!!!");
+        onUpdateBlog(id);
     }
 
     return (
@@ -48,7 +54,7 @@ const BlogEdit = ({ onClose, blog }) => {
                     placeholder='Enter Blog'
                     id='content'
                     name='content'
-                    rows={5}
+                    rows={10}
                     onChange={contentChangeHandler}
                     value={content}
                     required
