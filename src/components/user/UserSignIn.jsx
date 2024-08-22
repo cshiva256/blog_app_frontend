@@ -3,10 +3,13 @@ import styles from './user.module.css'
 import { setToken, userLogin } from '../../helpers/api'
 import { useNavigate } from 'react-router-dom'
 import { flash } from '../../helpers/flash';
+import { IoEyeSharp, IoEyeOffSharp } from "react-icons/io5";
 
 const UserSignIn = () => {
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
+    const [showPassword, setShowPassword] = useState(false)
+
     const navigate = useNavigate()
 
     const updateUserName = (e) => {
@@ -14,6 +17,9 @@ const UserSignIn = () => {
     }
     const updatePassword = (e) => {
         setPassword(e.target.value)
+    }
+    const togglePassword = () => {
+        setShowPassword(prev => !prev)
     }
 
     const SignInUser = async (event) => {
@@ -47,16 +53,23 @@ const UserSignIn = () => {
                 />
             </div>
             <div>
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">
+                    Password:
+                    {showPassword ?
+                        <IoEyeSharp onClick={togglePassword} className={styles.icons} />
+                        :
+                        <IoEyeOffSharp onClick={togglePassword} className={styles.icons} />
+                    }
+                </label>
                 <input
-                    type='password'
+                    type={showPassword ? 'text' : 'password'}
                     placeholder='password'
                     id='password'
                     name='password'
                     onChange={updatePassword}
                     value={password}
-                    required
                     minLength={6}
+                    required
                 />
             </div>
             <div className={styles.actions}>

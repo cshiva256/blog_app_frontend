@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import styles from './user.module.css'
 import {
     setToken,
-    editUser,
+    removeToken,
     getUserDetails,
-    deleteUser,
-    removeToken
+    editUser,
+    deleteUser
 } from '../../helpers/api'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { flash } from '../../helpers/flash'
+import { IoEyeSharp, IoEyeOffSharp } from "react-icons/io5";
 
 const UserEdit = () => {
     const [userName, setUserName] = useState("")
@@ -17,6 +18,7 @@ const UserEdit = () => {
     const [password, setPassword] = useState("")
     const [newPassword, setNewPassword] = useState("")
     const [newPasswordConfirmation, setNewPasswordConfirmation] = useState("")
+    const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -31,7 +33,6 @@ const UserEdit = () => {
     const updateUserName = (e) => {
         setUserName(e.target.value)
     }
-
     const updateDisplayName = (e) => {
         setDisplayName(e.target.value)
     }
@@ -43,6 +44,9 @@ const UserEdit = () => {
     }
     const updateNewPasswordConfirmation = (e) => {
         setNewPasswordConfirmation(e.target.value)
+    }
+    const togglePassword = () => {
+        setShowPassword(prev => !prev)
     }
 
     const updateUser = async (event) => {
@@ -124,29 +128,39 @@ const UserEdit = () => {
             <div>
                 <label htmlFor="new_password">New Password:</label>
                 <input
-                    type='password'
+                    type={showPassword ? 'text' : 'password'}
                     id='new_password'
                     name='new_password'
                     onChange={updateNewPassword}
+                    minLength={6}
                 />
             </div>
             <div>
                 <label htmlFor="password_confirmation">Password Confirmation:</label>
                 <input
-                    type='password'
+                    type={showPassword ? 'text' : 'password'}
                     id='password_confirmation'
                     name='password_confirmation'
                     onChange={updateNewPasswordConfirmation}
+                    minLength={6}
                 />
             </div>
             <div>
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">
+                    Password:
+                    {showPassword ?
+                        <IoEyeSharp onClick={togglePassword} className={styles.icons} />
+                        :
+                        <IoEyeOffSharp onClick={togglePassword} className={styles.icons} />
+                    }
+                </label>
                 <input
-                    type='password'
+                    type={showPassword ? 'text' : 'password'}
                     id='password'
                     name='password'
                     onChange={updatePassword}
                     value={password}
+                    minLength={6}
                     required
                 />
             </div>

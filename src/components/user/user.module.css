@@ -7,7 +7,8 @@
 }
 
 .form label {
-    display: block;
+    display: flex;
+    align-items: center;
     margin: 1rem 0 0.5rem;
     font-weight: bold;
     color: rgb(255, 255, 255);
@@ -68,4 +69,10 @@
 
 .actions button[type='button']:hover {
     color: #d1bee6;
+}
+
+.icons {
+    margin-left: 5px;
+    cursor: pointer;
+    padding: 2px;
 }

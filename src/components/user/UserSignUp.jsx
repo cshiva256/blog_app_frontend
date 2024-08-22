@@ -3,6 +3,7 @@ import styles from './user.module.css'
 import { setToken, userSignUp } from '../../helpers/api'
 import { useNavigate } from 'react-router-dom'
 import { flash } from '../../helpers/flash'
+import { IoEyeSharp, IoEyeOffSharp } from "react-icons/io5";
 
 const UserSignUp = () => {
 
@@ -10,6 +11,7 @@ const UserSignUp = () => {
     const [displayName, setDisplayName] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
+    const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate()
 
     const updateUserName = (e) => {
@@ -24,6 +26,9 @@ const UserSignUp = () => {
     }
     const updatePasswordConfiramtion = (e) => {
         setPasswordConfirmation(e.target.value)
+    }
+    const togglePassword = () => {
+        setShowPassword(prev => !prev)
     }
 
     const SignUpUser = async (event) => {
@@ -73,9 +78,16 @@ const UserSignUp = () => {
                 />
             </div>
             <div>
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">
+                    Password:
+                    {showPassword ?
+                        <IoEyeSharp onClick={togglePassword} className={styles.icons} />
+                        :
+                        <IoEyeOffSharp onClick={togglePassword} className={styles.icons} />
+                    }
+                </label>
                 <input
-                    type='password'
+                    type={showPassword ? 'text' : 'password'}
                     id='password'
                     name='password'
                     onChange={updatePassword}
@@ -87,7 +99,7 @@ const UserSignUp = () => {
             <div>
                 <label htmlFor="password_confirmation">Confirm Password:</label>
                 <input
-                    type='password'
+                    type={showPassword ? 'text' : 'password'}
                     id='password_confirmation'
                     name='password'
                     onChange={updatePasswordConfiramtion}
