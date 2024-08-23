@@ -1,3 +1,3 @@
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
-export const flash = (msg, info = 'success') => toast(msg, { type: info });
+export const flash = (msg, info = "success") => toast(msg, { type: info });

@@ -1,125 +1,125 @@
 .card {
-    background-color: rgb(205, 137, 234);
-    padding: 10px;
-    border-radius: 20px;
-    justify-content: center;
-    max-width: 70%;
-    margin: 5rem auto;
+  background-color: rgb(205, 137, 234);
+  padding: 10px;
+  border-radius: 20px;
+  justify-content: center;
+  max-width: 70%;
+  margin: 5rem auto;
 }
 
 .body {
-    text-align: justify;
-    font-family: "Edu VIC WA NT Beginner", cursive;
-    font-size: x-large;
+  text-align: justify;
+  font-family: "Edu VIC WA NT Beginner", cursive;
+  font-size: x-large;
 }
 
 .title {
-    text-align: center;
-    font-family: "Matemasie", sans-serif;
+  text-align: center;
+  font-family: "Matemasie", sans-serif;
 }
 
 .list {
-    position: relative;
-    font-size: larger;
-    padding-inline-start: 1px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 30%);
-    gap: 1rem;
+  position: relative;
+  font-size: larger;
+  padding-inline-start: 1px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 30%);
+  gap: 1rem;
 }
 
 .list-item {
-    position: relative;
-    list-style: none;
-    padding: 12px;
-    transition: 400ms;
-    -webkit-box-shadow: 18px 31px 56px -6px rgba(156, 156, 156, 0.5);
-    -moz-box-shadow: 18px 31px 56px -6px rgba(156, 156, 156, 0.5);
-    box-shadow: 18px 31px 56px -6px rgba(156, 156, 156, 0.5);
-    border-radius: 15px;
+  position: relative;
+  list-style: none;
+  padding: 12px;
+  transition: 400ms;
+  -webkit-box-shadow: 18px 31px 56px -6px rgba(156, 156, 156, 0.5);
+  -moz-box-shadow: 18px 31px 56px -6px rgba(156, 156, 156, 0.5);
+  box-shadow: 18px 31px 56px -6px rgba(156, 156, 156, 0.5);
+  border-radius: 15px;
 }
 
 .list-item:hover {
-    background-color: rgb(200, 120, 218);
-    border-radius: 20px;
-    top: -10px;
+  background-color: rgb(200, 120, 218);
+  border-radius: 20px;
+  top: -10px;
 }
 
 .link {
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    color: black;
-    position: relative;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  position: relative;
 }
 
 .form {
-    background-color: rgb(226, 145, 240);
-    padding: 2rem;
-    width: 30rem;
+  background-color: rgb(226, 145, 240);
+  padding: 2rem;
+  width: 30rem;
 }
 
 .form label {
-    display: block;
-    margin: 1rem 0 0.5rem;
-    font-weight: bold;
-    color: rgb(255, 255, 255);
+  display: block;
+  margin: 1rem 0 0.5rem;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
 }
 
 .form input,
 .form textarea {
-    display: block;
-    width: 95%;
-    font: inherit;
-    padding: 0.5rem;
-    border-radius: 6px;
-    background-color: rgb(191, 112, 222);
-    border: none;
-    color: aliceblue;
+  display: block;
+  width: 95%;
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 6px;
+  background-color: rgb(191, 112, 222);
+  border: none;
+  color: aliceblue;
 }
 
 .form textarea {
-    max-width: 95%;
-    min-width: 95%;
+  max-width: 95%;
+  min-width: 95%;
 }
 
 .checkbox {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .checkbox label,
 .checkbox input {
-    display: inline;
-    max-width: 30%;
+  display: inline;
+  max-width: 30%;
 }
 
 .actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
-    margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 10px;
 }
 
 .actions button {
-    cursor: pointer;
-    font: inherit;
-    padding: 0.5rem 1.5rem;
-    border: none;
-    border-radius: 10px;
-    background-color: #b72bd6;
-    color: #e5d5f7;
+  cursor: pointer;
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #b72bd6;
+  color: #e5d5f7;
 }
 
 .actions button:hover {
-    background-color: #f259e0;
-    color: #474547;
+  background-color: #f259e0;
+  color: #474547;
 }
 
-.actions button[type='button'] {
-    background-color: transparent;
-    color: black;
+.actions button[type="button"] {
+  background-color: transparent;
+  color: black;
 }
 
-.actions button[type='button']:hover {
-    color: #d1bee6;
+.actions button[type="button"]:hover {
+  color: #d1bee6;
 }

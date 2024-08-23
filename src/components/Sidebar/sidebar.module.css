@@ -1,78 +1,78 @@
 .sidebar {
-    height: 100%;
-    width: 230px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: rgb(205, 137, 234);
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  height: 100%;
+  width: 230px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(205, 137, 234);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    margin: auto;
-    padding: 10px;
-    text-align: center;
-    color: aliceblue;
-    font-size: larger;
-    transition: 400ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  color: aliceblue;
+  font-size: larger;
+  transition: 400ms;
 }
 
 .links:hover {
-    background-color: rgb(175, 87, 195);
-    border-radius: 10px;
+  background-color: rgb(175, 87, 195);
+  border-radius: 10px;
 }
 
 .bottom {
-    color: aliceblue;
-    margin-bottom: 100px;
+  color: aliceblue;
+  margin-bottom: 100px;
 }
 
 .search-btn {
-    text-align: center;
-    background: none;
-    border: none;
-    color: inherit;
-    font-size: large;
-    transition: 400ms;
-    position: relative;
+  text-align: center;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: large;
+  transition: 400ms;
+  position: relative;
 }
 
 .search-btn:hover {
-    color: aliceblue;
-    background-color: rgb(175, 87, 195);
-    border-radius: 10px;
-    left: 5px;
-    cursor: pointer;
+  color: aliceblue;
+  background-color: rgb(175, 87, 195);
+  border-radius: 10px;
+  left: 5px;
+  cursor: pointer;
 }
 
 .btn {
-    margin: auto;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    background: none;
-    border: none;
-    width: 100%;
-    color: aliceblue;
-    font-size: larger;
-    align-items: center;
-    transition: 400ms;
+  margin: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  background: none;
+  border: none;
+  width: 100%;
+  color: aliceblue;
+  font-size: larger;
+  align-items: center;
+  transition: 400ms;
 }
 
 .btn:hover {
-    background-color: rgb(175, 87, 195);
-    border-radius: 10px;
-    cursor: pointer;
+  background-color: rgb(175, 87, 195);
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .icon {
-    margin-left: 10px;
+  margin-left: 10px;
 }
