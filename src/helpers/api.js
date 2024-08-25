@@ -34,6 +34,7 @@ export const getPublicBlogs = async (query) => {
     return res.json();
   } catch (error) {
     console.log(error, "error in fetching public blogs");
+    return { error: "Error in fetching public blogs" };
   }
 };
 

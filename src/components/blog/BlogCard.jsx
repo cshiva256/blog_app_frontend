@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { deleteBlog, getBlog, getToken } from "../../helpers/api";
 import styles from "./blog.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Modal from "../modal/Modal";
 import BlogEdit from "./BlogEdit";
 import NotFoundPage from "../../NotFoundPage";

@@ -41,24 +41,22 @@ const BlogView = () => {
 
   return (
     <>
-      <h1>List of private Blogs</h1>
+      <h1 className={styles.header}>List of private Blogs</h1>
       {modelContent}
       <div className={styles.actions}>
         <button type="button" onClick={toggleModalVisibility}>
           <MdPostAdd /> Add Blog
         </button>
       </div>
-      <div>
-        <ul className={styles.list}>
-          {blogs.map((blog, idx) => {
-            return (
-              <li key={idx} className={styles["list-item"]}>
-                <ListItem blog={blog} />
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      <ul className={styles.list}>
+        {blogs.map((blog, idx) => {
+          return (
+            <li key={idx} className={styles["list-item"]}>
+              <ListItem blog={blog} />
+            </li>
+          );
+        })}
+      </ul>
     </>
   );
 };

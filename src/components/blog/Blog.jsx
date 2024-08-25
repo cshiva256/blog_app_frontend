@@ -23,7 +23,7 @@ const Blog = () => {
 
   return (
     <div>
-      <h1>Public Blogs</h1>
+      <h1 className={styles.header}>Public Blogs</h1>
       <ul className={styles.list}>
         {blogs.map((blog, idx) => {
           return (

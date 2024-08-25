@@ -13,6 +13,14 @@
   font-size: x-large;
 }
 
+.header {
+  position: fixed;
+  top: 0;
+  border-bottom: #474547 1px solid;
+  border-radius: 10px;
+  padding: 0 20px 5px;
+}
+
 .title {
   text-align: center;
   font-family: "Matemasie", sans-serif;
@@ -20,12 +28,16 @@
 
 .list {
   position: relative;
+  top: 50px;
   font-size: larger;
-  padding-inline-start: 1px;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 30%);
-  gap: 1rem;
+  grid-gap: 20px;
+  padding: 20px;
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  grid-auto-columns: 30%;
+  overflow-x: auto;
 }
 
 .list-item {

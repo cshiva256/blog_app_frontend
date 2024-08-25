@@ -1,9 +1,19 @@
 .form {
-  background-color: rgb(226, 145, 240);
+  background: linear-gradient(
+    90deg,
+    rgba(221, 82, 241, 1) 0%,
+    rgb(205, 99, 226) 34%,
+    rgba(226, 189, 236, 1) 66%,
+    rgb(255, 255, 255) 100%
+  );
   padding: 2rem;
   width: 30rem;
   border-radius: 10px;
   margin: 5rem auto;
+
+  -webkit-box-shadow: 35px 27px 81px -23px rgba(173, 97, 173, 0.71);
+  -moz-box-shadow: 35px 27px 81px -23px rgba(173, 97, 173, 0.71);
+  box-shadow: 35px 27px 81px -23px rgba(173, 97, 173, 0.71);
 }
 
 .form label {
@@ -21,9 +31,15 @@
   font: inherit;
   padding: 0.5rem;
   border-radius: 6px;
-  background-color: rgb(191, 112, 222);
+  background-color: rgb(217, 123, 233);
   border: none;
   color: aliceblue;
+}
+
+.form input:focus,
+.form textarea:focus {
+  background-color: #ffd6ff;
+  color: black;
 }
 
 .form textarea {
@@ -75,4 +91,11 @@
   margin-left: 5px;
   cursor: pointer;
   padding: 2px;
+}
+
+.header {
+  max-width: max-content;
+  border-bottom: #474547 1px solid;
+  border-radius: 10px;
+  padding: 0 20px 5px;
 }

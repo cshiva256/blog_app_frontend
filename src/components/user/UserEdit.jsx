@@ -101,75 +101,81 @@ const UserEdit = () => {
   };
 
   return (
-    <form className={styles.form} onSubmit={updateUser}>
-      <div>
-        <label htmlFor="user_name">User Name:</label>
-        <input
-          type="text"
-          id="user_name"
-          name="user_name"
-          onChange={updateUserName}
-          value={userName}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="display_name">Display Name:</label>
-        <input
-          type="text"
-          id="display_name"
-          name="display_name"
-          onChange={updateDisplayName}
-          value={displayName}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="new_password">New Password:</label>
-        <input
-          type={showPassword ? "text" : "password"}
-          id="new_password"
-          name="new_password"
-          onChange={updateNewPassword}
-          minLength={6}
-        />
-      </div>
-      <div>
-        <label htmlFor="password_confirmation">Password Confirmation:</label>
-        <input
-          type={showPassword ? "text" : "password"}
-          id="password_confirmation"
-          name="password_confirmation"
-          onChange={updateNewPasswordConfirmation}
-          minLength={6}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">
-          Password:
-          {showPassword ? (
-            <IoEyeSharp onClick={togglePassword} className={styles.icons} />
-          ) : (
-            <IoEyeOffSharp onClick={togglePassword} className={styles.icons} />
-          )}
-        </label>
-        <input
-          type={showPassword ? "text" : "password"}
-          id="password"
-          name="password"
-          onChange={updatePassword}
-          value={password}
-          minLength={6}
-          required
-        />
-      </div>
-      <div className={styles.actions}>
-        <button type="button" onClick={removeUser}>
-          Delete User
-        </button>
-        <button>Update User</button>
-      </div>
-    </form>
+    <>
+      <h1 className={styles.header}>Edit User Details</h1>
+      <form className={styles.form} onSubmit={updateUser}>
+        <div>
+          <label htmlFor="user_name">User Name:</label>
+          <input
+            type="text"
+            id="user_name"
+            name="user_name"
+            onChange={updateUserName}
+            value={userName}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="display_name">Display Name:</label>
+          <input
+            type="text"
+            id="display_name"
+            name="display_name"
+            onChange={updateDisplayName}
+            value={displayName}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="new_password">New Password:</label>
+          <input
+            type={showPassword ? "text" : "password"}
+            id="new_password"
+            name="new_password"
+            onChange={updateNewPassword}
+            minLength={6}
+          />
+        </div>
+        <div>
+          <label htmlFor="password_confirmation">Password Confirmation:</label>
+          <input
+            type={showPassword ? "text" : "password"}
+            id="password_confirmation"
+            name="password_confirmation"
+            onChange={updateNewPasswordConfirmation}
+            minLength={6}
+          />
+        </div>
+        <div>
+          <label htmlFor="password">
+            Password:
+            {showPassword ? (
+              <IoEyeSharp onClick={togglePassword} className={styles.icons} />
+            ) : (
+              <IoEyeOffSharp
+                onClick={togglePassword}
+                className={styles.icons}
+              />
+            )}
+          </label>
+          <input
+            type={showPassword ? "text" : "password"}
+            id="password"
+            name="password"
+            onChange={updatePassword}
+            value={password}
+            minLength={6}
+            required
+          />
+        </div>
+        <div className={styles.actions}>
+          <button type="button" onClick={removeUser}>
+            Delete User
+          </button>
+          <button>Update User</button>
+        </div>
+      </form>
+    </>
   );
 };
 

@@ -6,8 +6,8 @@ export const useSearch = () => {
   return useContext(SearchContext);
 };
 
-export const SearchProvider = ({ children }) => {
-  const [query, setQuery] = useState("");
+export const SearchProvider = ({ children, searchParam = "" }) => {
+  const [query, setQuery] = useState(searchParam);
 
   return (
     <SearchContext.Provider value={{ query, setQuery }}>
