@@ -41,7 +41,11 @@ const Sidebar = () => {
         </Link>
         {user_id ? (
           <>
-            <Link to="/blogs/view" className={styles.links}>
+            <Link
+              to="/blogs/view"
+              className={styles.links}
+              onClick={handleQueryParams}
+            >
               My Blogs <SiSparkpost className={styles.icon} />
             </Link>
             <Link to="/users/edit" className={styles.links}>
