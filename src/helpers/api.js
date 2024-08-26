@@ -130,7 +130,8 @@ export const deleteBlog = async (id) => {
     });
     return res.json();
   } catch (error) {
-    console.log("error while deleting blog");
+    console.log(" error while deleting blog " + error.message);
+    return { error: "Error while deleting blog" };
   }
 };
 
@@ -173,17 +174,21 @@ export const userSignUp = async (userData) => {
 };
 
 export const getUserDetails = async () => {
-  const res = await fetch(process.env.REACT_APP_API + `users`, {
-    method: "GET",
-    headers: {
-      Accept: "application/json, text/plain, */*",
-      "Content-Type": "application/json",
-      Authorization: getToken()["access_token"],
-    },
-    credentials: "include",
-  });
+  try {
+    const res = await fetch(process.env.REACT_APP_API + `users`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+        Authorization: getToken()["access_token"],
+      },
+      credentials: "include",
+    });
 
-  return res.json();
+    return res.json();
+  } catch (error) {
+    console.log("error while getting user details!!");
+  }
 };
 
 export const editUser = async (userData) => {

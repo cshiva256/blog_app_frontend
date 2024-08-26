@@ -21,12 +21,14 @@ const UserEdit = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
+  const setUser = async () => {
+    const data = await getUserDetails();
+    if (!data) return;
+    setUserName(data["user_name"]);
+    setDisplayName(data["display_name"]);
+  };
+
   useEffect(() => {
-    const setUser = async () => {
-      const data = await getUserDetails();
-      setUserName(data["user_name"]);
-      setDisplayName(data["display_name"]);
-    };
     setUser();
   }, []);
 

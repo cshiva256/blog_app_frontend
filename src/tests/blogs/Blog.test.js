@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Blog from "./Blog";
+import Blog from "../../components/blog/Blog";
 import { SearchProvider } from "../../context/SearchContext";
 import { BrowserRouter } from "react-router-dom";
 
@@ -23,7 +23,7 @@ const renderComponent = () => {
 };
 
 describe("Blog Component", () => {
-  test("renders public blogs", async () => {
+  test("Renders public blogs", async () => {
     global.fetch.mockResolvedValueOnce({
       json: async () => {
         return [
@@ -49,7 +49,7 @@ describe("Blog Component", () => {
     expect(listItemElements).not.toHaveLength(0);
   });
 
-  test("error while rendering public blogs", async () => {
+  test("Error while rendering public blogs", async () => {
     global.fetch.mockResolvedValueOnce({
       json: async () => {
         return { error: "Error in fetching public blogs" };
