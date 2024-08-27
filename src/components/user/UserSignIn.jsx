@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./user.module.css";
 import { setToken, userLogin } from "../../helpers/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { flash } from "../../helpers/flash";
 import { IoEyeSharp, IoEyeOffSharp } from "react-icons/io5";
 
@@ -11,6 +11,7 @@ const UserSignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const updateUserName = (e) => {
     setUserName(e.target.value);
@@ -36,7 +37,11 @@ const UserSignIn = () => {
     }
     setToken(res);
     flash("Successfully Logged In!!!");
-    navigate("/blogs");
+    if (location.state && location.state.from) {
+      navigate(location.state.from);
+    } else {
+      navigate("/blogs");
+    }
   };
 
   return (

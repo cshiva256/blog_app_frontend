@@ -72,6 +72,26 @@ Once you have installed the dependencies, you can start the application:
    http://localhost:3001
    ```
 
+## Testing the Application with jest
+
+Once you have installed the dependencies, you can start testing the application:
+
+1. **Begin the excution of test scripts**
+
+   Run the following command to start testing the application:
+
+   ```bash
+   npm run test
+   ```
+
+2. **To get the Complete Coverage Report**
+
+   Run the following command:
+
+   ```
+   npm run test -- --coverage .
+   ```
+
 ## Contributing
 
 If you would like to contribute to the project, please follow these guidelines:

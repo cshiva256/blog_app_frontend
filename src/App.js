@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Blog from "./components/blog/Blog";
 import Sidebar from "./components/Sidebar/Sidebar";
 import { SearchProvider } from "./context/SearchContext";
@@ -11,6 +11,8 @@ import BlogView from "./components/blog/BlogView";
 import UserEdit from "./components/user/UserEdit";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PrivateRoutes from "./utils/PrivateRoutes";
+import PublicRoutes from "./utils/PublicRoutes";
 
 function App() {
   return (
@@ -19,13 +21,17 @@ function App() {
         <Sidebar />
         <div className="main">
           <Routes>
+            <Route path="/" element={<Navigate to="/blogs" />} />
             <Route path="/blogs" element={<Blog />} />
-            <Route path="/blogs/view" element={<BlogView />} />
+            <Route element={<PrivateRoutes />}>
+              <Route path="/blogs/view" element={<BlogView />} />
+              <Route path="/users/edit" element={<UserEdit />} />
+            </Route>
             <Route path="/blogs/:id" element={<BlogCard />} />
-
-            <Route path="/users/sign-up" element={<UserSignUp />} />
-            <Route path="/users/sign-in" element={<UserSignIn />} />
-            <Route path="/users/edit" element={<UserEdit />} />
+            <Route element={<PublicRoutes />}>
+              <Route path="/users/sign-up" element={<UserSignUp />} />
+              <Route path="/users/sign-in" element={<UserSignIn />} />
+            </Route>
 
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
